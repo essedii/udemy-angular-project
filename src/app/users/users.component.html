@@ -1,0 +1,23 @@
+<table class="table table-dark table-striped table-sm">
+    <caption>{{title}}</caption>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Fiscal Code</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Province</th>
+            <th>Age</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr app-user *ngFor="let user of users" 
+            [user-data]="user" 
+            (onDeleteUser)="onDeleteUser($event)"
+            (onSelectUser)="onSelectUser($event)">
+        </tr>
+    </tbody>
+    
+</table>
