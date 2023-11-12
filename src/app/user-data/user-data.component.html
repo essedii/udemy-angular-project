@@ -31,13 +31,16 @@
         </tr>
     </tbody>
     <tfoot>
-        <td class="text-center">
-            <a class="btn btn-sm btn-primary w-50" [routerLink]="['/routePath']" >BACK TO USERS</a>
-        </td>
+        <tr>
+            <td class="text-center" colspan="2">
+                <a class="btn btn-sm btn-primary w-50" [routerLink]="['/users']">BACK TO USERS</a>
+                
+            </td>
+        </tr>
     </tfoot>
 </table>
 <ng-template #noUser>
-    <div *ngIf="!user">
+    <div>
         <h2>NO USER FOUND</h2>
     </div>
 </ng-template>

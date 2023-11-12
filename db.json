@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Giulio",
+      "lastName": "Andreotti",
+      "fiscalCode": "DLSUTIH604RMZ",
+      "email": "a@abstract.gmail.com",
+      "phone": "1291981821",
+      "province": "RM",
+      "age": 45
+    },
+    {
+      "id": 2,
+      "name": "Antonio",
+      "lastName": "Ricci",
+      "fiscalCode": "REFUTIH345RMS",
+      "email": "b@afefferact.gmail.com",
+      "phone": "1434324321",
+      "province": "NA",
+      "age": 54
+    },
+    {
+      "id": 3,
+      "name": "Valerio",
+      "lastName": " Issi",
+      "fiscalCode": "432fd3IH345RMS",
+      "email": "asd@afefferact.gmail.com",
+      "phone": "434343424321",
+      "province": "AG",
+      "age": 54
+    },
+    {
+      "name": "New user",
+      "lastName": "from thunder",
+      "fiscalCode": "YYULSUT34324ZF",
+      "email": "t@abstract.gmail.com",
+      "phone": "5431981821",
+      "province": "MI",
+      "age": 65,
+      "id": 4
+    }
+  ]
+}

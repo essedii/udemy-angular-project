@@ -11,7 +11,7 @@ import { User } from '../classes/User';
 })
 export class UserDataComponent implements OnInit {
 
-  user: IUser | undefined;
+  public user: IUser | undefined;
 
   constructor(private route: ActivatedRoute, private service: UserService) {
   }
