@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { User } from '../classes/User';
 import { IUser } from '../interfaces/user';
 
@@ -11,9 +11,10 @@ import { IUser } from '../interfaces/user';
 export class NavComponent {
   userSelected: IUser;
   showForm: boolean = false;
+  @Output() 
+  onNewUser = new EventEmitter();
 
   newUser() {
-    this.userSelected = new User();
-    this.showForm = true;
+    this.onNewUser.emit();
   }
 }

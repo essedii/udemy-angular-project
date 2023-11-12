@@ -7,12 +7,16 @@
 <td>{{user.age}}</td>
 <td>
     <div class="row">
-        <div class="col-sm-6">
-            <button class="btn btn-primary btn-sm" (click)="updateUser()">
+        <div class="col-sm-4">
+            <a class="btn btn-primary btn-sm" routerLink="/users/{{user.id}}/edit">
                 <fa-icon [icon]="faPen"></fa-icon>
-            </button>
+            </a>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
+            <button class="btn btn-warning btn-sm" routerLink="/users/{{user.id}}">
+                <fa-icon [icon]="faInfo"></fa-icon></button>
+        </div>
+        <div class="col-sm-4">
             <button class="btn btn-danger btn-sm" (click)="deleteUser()">
                 <fa-icon [icon]="faTrash"></fa-icon></button>
         </div>

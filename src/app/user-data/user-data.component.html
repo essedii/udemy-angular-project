@@ -1,0 +1,43 @@
+<h2>User Detail</h2>
+<table *ngIf="user; else noUser" class="table table-dark table-striped">
+    <tbody>
+        <tr>
+            <th>First Name</th>
+            <td>{{user?.name}}</td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td>{{user?.lastName}}</td>
+        </tr>
+        <tr>
+            <th>Fiscal Code</th>
+            <td>{{user?.fiscalCode}}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{user?.email}}</td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td>{{user?.phone}}</td>
+        </tr>
+        <tr>
+            <th>Province</th>
+            <td>{{user?.province}}</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>{{user?.age}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <td class="text-center">
+            <a class="btn btn-sm btn-primary w-50" [routerLink]="['/routePath']" >BACK TO USERS</a>
+        </td>
+    </tfoot>
+</table>
+<ng-template #noUser>
+    <div *ngIf="!user">
+        <h2>NO USER FOUND</h2>
+    </div>
+</ng-template>

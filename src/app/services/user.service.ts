@@ -35,21 +35,15 @@ export class UserService {
             phone: '5461291821',
             province:'TO',
             age: 53
-        },
-        {
-            id: 4,
-            name: 'Giorgio',
-            lastName: 'Napolitano',
-            fiscalCode: '9DS909JJJDS',
-            email: 'cv@teatref.gmail.com',
-            phone: '434351434324321',
-            province:'MI',
-            age: 33
         }
     ]
   
-    getUsers() {
-        return this.users
+    getUsers():IUser[] {
+        return this.users;
+    }
+
+    getUser(id: number): IUser | undefined{
+        return this.users.find(user=> user.id == id)
     }
 
     deleteUser(user: IUser) {

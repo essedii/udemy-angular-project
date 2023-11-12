@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IUser } from './interfaces/user';
+import { User } from './classes/User';
 
 
 @Component({
@@ -14,6 +15,11 @@ export class AppComponent {
   
   updateUser(user: IUser) {
     this.userSelected = user
+    this.showForm = true;
+  }
+
+  newUser() {
+    this.userSelected = new User();
     this.showForm = true;
   }
 }

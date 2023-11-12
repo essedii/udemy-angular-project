@@ -1,6 +1,7 @@
 import { IUser } from '../interfaces/user';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
+import { faPencil, faTrash, faInfo } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -16,16 +17,14 @@ export class UserComponent implements OnInit {
 
   faPen = faPencil;
   faTrash = faTrash;
-  constructor() {
+  faInfo = faInfo;
+
+  constructor(private route: Router) {
   }
 
   ngOnInit(): void {}
 
   deleteUser() {
     this.userDeleted.emit(this.user);
-  }
-
-  updateUser() {
-    this.userSelected.emit(this.user);
   }
 }
