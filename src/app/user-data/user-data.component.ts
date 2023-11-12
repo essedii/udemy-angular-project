@@ -18,8 +18,7 @@ export class UserDataComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe( (param)=> {
       const id = Number(param.get('id'));
-      const user = this.service.getUser(id)
-      return this.user = user;
+      this.service.getUser(id).subscribe( data => this.user = data)
     })
   }
 }

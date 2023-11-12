@@ -1,6 +1,8 @@
 import { IUser } from './../interfaces/user';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { Observable } from 'rxjs';
+import { UserComponent } from '../user/user.component';
 
 
 @Component({
@@ -9,20 +11,36 @@ import { UserService } from '../services/user.service';
     styles:  ['']
 })
 
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, AfterViewInit {
     title = 'Users';
-    public users: IUser[] = [];
+    public users$: Observable<IUser[]> = this.service.getUsers()
     @Output()updateUser = new EventEmitter<IUser>;
+    
+    // @ViewChildren(UserComponent) trs:QueryList<UserComponent>;
+    @ViewChildren(UserComponent, {read: ElementRef}) trs:QueryList<ElementRef>;
+
     constructor(
         private service: UserService
     ) {}
 
     ngOnInit(): void {
-        this.users = this.service.getUsers();
+    }
+
+    ngAfterViewInit(): void {
+        console.log('after view init', this.trs);
+        this.trs.forEach(ele => console.log(ele));
     }
 
     onDeleteUser(user: IUser) {
-        this.service.deleteUser(user)
+        this.service.deleteUser(user).subscribe( res => {
+            this.trs.forEach(ele => {
+                const el = ele.nativeElement;
+                if (Number(el.id) === user.id) {
+                    el.parentNode.removeChild(el);
+                }
+            })
+        });
+
     }
 
     onSelectUser(user: IUser) {
