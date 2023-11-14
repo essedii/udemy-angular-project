@@ -8,13 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserDataComponent } from './user-data/user-data.component';
 // import { RouteGuardService } from './route-guard.service';
-import { activateUserFn } from './route-guard.service';
+import { activateUserFn } from './services/route-guard.service';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
     path: 'users',
     pathMatch: 'full',
-    component: UsersComponent
+    component: UsersComponent,
+    canActivate: [activateUserFn]
   },
   {
     path: '',
@@ -29,11 +31,15 @@ const routes: Routes = [
     path: 'users/:id/edit',
     component: UserDetailComponent,
     // canActivate: [RouteGuardService]
-    canActivate: [activateUserFn]
+
   },
   {
     path: 'users/:id',
     component: UserDataComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'users/new',
