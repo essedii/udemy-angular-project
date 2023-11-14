@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './user/user.component';
@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserDataComponent } from './user-data/user-data.component';
+// import { RouteGuardService } from './route-guard.service';
+import { activateUserFn } from './route-guard.service';
 
 const routes: Routes = [
   {
@@ -25,7 +27,9 @@ const routes: Routes = [
   },
   {
     path: 'users/:id/edit',
-    component: UserDetailComponent
+    component: UserDetailComponent,
+    // canActivate: [RouteGuardService]
+    canActivate: [activateUserFn]
   },
   {
     path: 'users/:id',
@@ -42,6 +46,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes),CommonModule,
     FormsModule,
     FontAwesomeModule],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  // providers: [RouteGuardService]
 })
 export class AppRoutingModule { }
