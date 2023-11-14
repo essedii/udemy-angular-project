@@ -29,12 +29,14 @@ export class UserDetailComponent implements OnInit {
   }
 
   ngOnInit(): void{
-    this.route.paramMap.subscribe( (param)=> {
-      
-    if (param.get('id')) {
-      const id = Number(param.get('id'));
-      this.service.getUser(id).subscribe( data => this.user = data)
-    } 
+    if(!this.user) { 
+      this.user = new User();
+    }
+    this.route.paramMap.subscribe( (param)=> {  
+    const id = Number(param.get('id'));
+    if (id) {
+      this.service.getUser(id).subscribe( user => this.user = user.data)
+    };
     })
   }
 

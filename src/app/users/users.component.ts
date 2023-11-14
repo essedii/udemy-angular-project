@@ -1,6 +1,6 @@
 import { IUser } from './../interfaces/user';
 import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
-import { UserService } from '../services/user.service';
+import { UserService, UsersResponse } from '../services/user.service';
 import { Observable } from 'rxjs';
 import { UserComponent } from '../user/user.component';
 
@@ -13,7 +13,7 @@ import { UserComponent } from '../user/user.component';
 
 export class UsersComponent implements OnInit, AfterViewInit {
     title = 'Users';
-    public users$: Observable<IUser[]> = this.service.getUsers()
+    public users$: Observable<UsersResponse> = this.service.getUsers()
     @Output()updateUser = new EventEmitter<IUser>;
     
     // @ViewChildren(UserComponent) trs:QueryList<UserComponent>;
