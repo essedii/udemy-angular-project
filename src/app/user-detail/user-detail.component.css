@@ -1,8 +1,3 @@
-/* .userForm {
-    width: 98%;
-    margin: 0 auto;
-} */
-
-input.ng-invalid {
+input.ng-invalid.ng-touched {
     border: 1px solid red;
 }
