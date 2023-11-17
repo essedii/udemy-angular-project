@@ -19,7 +19,8 @@ export interface UserResponse {
     providedIn:'root'
 })
 export class UserService {
-    apiUrl = environment.APIURL;
+    // apiUrl = environment.APIURL;
+    apiUrl = "http://3.18.130.140:9072/users";
     constructor(private http: HttpClient) {
 
     }
