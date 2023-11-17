@@ -15,8 +15,6 @@ export class UsersComponent implements OnInit, AfterViewInit {
     title = 'Users';
     public users$: Observable<UsersResponse> = this.service.getUsers()
     @Output()updateUser = new EventEmitter<IUser>;
-    
-    // @ViewChildren(UserComponent) trs:QueryList<UserComponent>;
     @ViewChildren(UserComponent, {read: ElementRef}) trs:QueryList<ElementRef>;
 
     constructor(

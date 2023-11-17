@@ -1,6 +1,7 @@
+const BASE_URL = 'http://3.18.130.140:9072';
 
 export const environment = {
     production: false,
-    // APIURL: 'http://localhost:3000/users'
-    APIURL: 'http://3.18.130.140:9072/users'
+    USERS_API: `${BASE_URL}/users`,
+    AUTH_API: `${BASE_URL}/api/auth/`
 };
