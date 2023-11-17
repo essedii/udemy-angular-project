@@ -103,7 +103,7 @@
             <a class="btn btn-lg btn-primary w-50" [routerLink]="['/users']" >BACK TO USERS</a> 
         </div>
         <div class="col-md-4">
-            <a class="btn btn-lg btn-outline-secondary w-50" (click)="resetForm()">Reset</a>
+            <a class="btn btn-lg btn-outline-secondary w-50" (click)="resetForm(f.value)">Reset</a>
         </div>
         <div class="col-md-4">
             <a class="btn btn-lg btn-success w-50" (click)="saveUser()">Save</a>

@@ -33,10 +33,10 @@ export class UserDetailComponent implements OnInit {
       this.user = new User();
     }
     this.route.paramMap.subscribe( (param)=> {  
-      const id = Number(param.get('id'));
-      if (id) {
-        this.service.getUser(id).subscribe( user => this.user = user.data)
-      };
+    const id = Number(param.get('id'));
+    if (id) {
+      this.service.getUser(id).subscribe( user => this.user = user.data)
+    };
     })
   }
 
@@ -52,7 +52,7 @@ export class UserDetailComponent implements OnInit {
     })
   }
 
-  resetForm(){
+  resetForm(form: any){
     console.log(this.user.id)
     if (this.user.id === 0) {
       this.user = new User();
